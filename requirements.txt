@@ -1,0 +1,4 @@
+aiohttp
+websockets
+chardet
+amino.py==1.2.10.1
