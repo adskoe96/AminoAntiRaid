@@ -11,16 +11,22 @@ def on_message(data):
     nickname = data.message.author.nickname
     content = data.message.content
     mtype = data.message.type
-    chatname = subclient.get_chat_thread(chatId=data.message.chatId).title
     mid = data.message.messageId
     uid = data.message.author.userId
-    print(f'{chatname}: {nickname}: {mtype}: {content}')
+#
+#ANTIRAID
+#
     if (mtype == 100) | (mtype == 109) | (mtype == 107)  | (mtype == 110) | (mtype == 108)  | (mtype == 111) | (mtype == 111):
         if mtype == 100 and content == None:
                   pass
         else:
             subclient.kick(chatId=chatid, userId = uid, allowRejoin=False)
             subclient.send_message(chatId = chatid, message = f'MessageType {mtype} detected! Nickname: {nickname} | userId: {uid} | messageId: {mid}.')
+#
+#HEY
+#
+    if content == "?hey":
+        subclient.send_message(chatId=chatid, message="work status: True")
 methods = []
 for x in client.callbacks.chat_methods:
     methods.append(client.callbacks.event(client.callbacks.chat_methods[x].__name__)(on_message))
