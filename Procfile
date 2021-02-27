@@ -1,1 +1,1 @@
-worker: python botRelease.py
+worker: python detectorRelease.py
